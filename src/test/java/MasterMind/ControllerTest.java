@@ -7,8 +7,11 @@ import org.junit.Test;
 public class ControllerTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testTurn() {
+		View view = new View();
+		Model model = new Model();
+		Controller controller = new Controller(view, model);
+		assertEquals(view.turn, 9);
 	}
 
 }
