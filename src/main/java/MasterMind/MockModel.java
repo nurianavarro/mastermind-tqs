@@ -1,13 +1,19 @@
 package MasterMind;
 
-public class MockModel {
+public class MockModel extends Model {
+	boolean filled = false;
+	boolean victory = false;
+	
+	public MockModel(){
+		
+	}
 	
 	boolean isFilled() {
-		return true;
+		return filled;
 	}
 	
 	boolean hasWon(){
-		return true;
+		return victory;
 	}
 	
 	boolean checkIfContains() {

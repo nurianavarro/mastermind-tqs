@@ -11,4 +11,12 @@ public class ModelTest {
 		//fail("Not yet implemented");
 	}
 
+	@Test
+	public void testIsFilled() {
+		MockModel m = new MockModel();
+		boolean result;
+		result = m.isFilled();
+		assertEquals(result, false);
+		
+	}
 }
