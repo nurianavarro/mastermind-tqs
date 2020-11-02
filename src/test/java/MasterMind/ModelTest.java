@@ -19,12 +19,20 @@ public class ModelTest {
 		assertEquals(result, false);
 		
 	}
-	
+	@Test
 	public void testHasWon() {
 		MockModel m = new MockModel();
 		boolean result;
 		result = m.hasWon();
 		assertEquals(result, false);
+		
+	}
+	@Test
+	public void testCheckIfContains() {
+		MockModel m = new MockModel();
+		boolean result;
+		result = m.checkIfContains();
+		assertEquals(result, true);
 		
 	}
 }
