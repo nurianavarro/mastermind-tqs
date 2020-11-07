@@ -13,7 +13,13 @@ public class MockModel extends Model {
 	}
 	
 	public void generateRandomPattern() {
-		
+		for (int i=0; i<LENGTH; i++) {
+			Random randomGenerator = new Random();
+			if(indices.size() < LENGTH) {
+				int randomNumber = randomGenerator.nextInt();
+				indices.add(randomNumber);
+			}
+		}
 	}
 	
 	boolean isFilled() {
