@@ -9,7 +9,7 @@ public class ControllerTest {
 	@Test
 	public void testTurn() {
 		View view = new View();
-		Model model = new Model();
+		Model model = new Model(4);
 		Controller controller = new Controller(view, model);
 		assertEquals(view.turn, 9);
 	}
