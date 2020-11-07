@@ -3,6 +3,11 @@ package MasterMind;
 public class Model {
 	boolean filled = false;
 	boolean victory = false;
+	int turn;
+	
+	public Model(){
+		turn = 9;
+	}
 	
 	public void generateRandomPattern() {
 		

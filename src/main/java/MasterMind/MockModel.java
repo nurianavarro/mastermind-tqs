@@ -1,10 +1,18 @@
 package MasterMind;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class MockModel extends Model {
 	boolean filled = false;
 	boolean victory = false;
+	int LENGTH = 0;
+	ArrayList<Integer> indices = new ArrayList<Integer>();
 	
-	public MockModel(){
+	public MockModel(int LENGTH){
+		this.LENGTH = LENGTH;
+	}
+	
+	public void generateRandomPattern() {
 		
 	}
 	
@@ -19,4 +27,7 @@ public class MockModel extends Model {
 	boolean checkIfContains() {
 		return true;
 	}
+	
+	int getLENGTH() {return LENGTH;}
+	ArrayList<Integer> getIndices(){return indices;}
 }
