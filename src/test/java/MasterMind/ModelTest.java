@@ -44,7 +44,6 @@ public class ModelTest {
 		Model m = new Model(4);
 		m.generateRandomPattern();
 		//Test if size of array is equal to LENGTH
-		System.out.println(m.getIndices());
 		assertEquals(m.getIndices().size(), m.getLENGTH());
 		//Test if there is repeated numbers
 		boolean repeatedNumbers = false;

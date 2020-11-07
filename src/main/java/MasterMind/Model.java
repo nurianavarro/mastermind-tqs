@@ -19,10 +19,16 @@ public class Model {
 	
 	public void generateRandomPattern() {
 		for (int i=0; i<LENGTH; i++) {
+			boolean repeatedNumber = true;
 			Random randomGenerator = new Random();
 			if(indices.size() < LENGTH) {
-				int randomNumber = randomGenerator.nextInt(7);
-				indices.add(randomNumber);
+				while(repeatedNumber) {
+					int randomNumber = randomGenerator.nextInt(7);
+					if(!indices.contains(randomNumber)) {
+						indices.add(randomNumber);
+						repeatedNumber = false;
+					}
+				}	
 			}
 		}
 	}
