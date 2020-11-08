@@ -76,5 +76,22 @@ public class ModelTest {
 		}
 		//Test if it is the same result
 		assertEquals(result,true);
+		
+		
+		//Test if is in different position
+		MockModel m2 = new MockModel(4);
+		m2.setRandomPattern(randomPattern);
+		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
+		guessedPattern2.add(2);
+		guessedPattern2.add(1);
+		guessedPattern2.add(4);
+		guessedPattern2.add(3);
+		m2.setGuessedPattern(guessedPattern);
+		m2.checkResult();
+		boolean result2 = false;
+		if(m2.getCountW()==m2.getLENGTH()) {
+			result2 = true;
+		}
+		assertEquals(result2,false);
 	}
 }
