@@ -77,7 +77,6 @@ public class ModelTest {
 		//Test if it is the same result
 		assertEquals(result,true);
 		
-		
 		//Test if is in different position
 		MockModel m2 = new MockModel(4);
 		m2.setRandomPattern(randomPattern);
@@ -86,7 +85,7 @@ public class ModelTest {
 		guessedPattern2.add(1);
 		guessedPattern2.add(4);
 		guessedPattern2.add(3);
-		m2.setGuessedPattern(guessedPattern);
+		m2.setGuessedPattern(guessedPattern2);
 		m2.checkResult();
 		boolean result2 = false;
 		if(m2.getCountW()==m2.getLENGTH()) {

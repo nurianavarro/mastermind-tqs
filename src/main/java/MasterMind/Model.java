@@ -14,6 +14,8 @@ public class Model {
 	
 	public Model(int LENGTH){
 		this.LENGTH = LENGTH;
+		countWhite = 0;
+		countBlack = 0;
 	}
 	
 	 //Getters
@@ -42,13 +44,13 @@ public class Model {
 	
 	public void checkResult() {
 		for(int i=0; i<LENGTH; i++) {
-			//if(randomPattern.contains(guessedPattern.get(i))) {
+			if(randomPattern.contains(guessedPattern.get(i))) {
 				if(randomPattern.get(i)==guessedPattern.get(i)) {
 					countWhite++;
 				}else {
 					countBlack++;
 				}
-			//}
+			}
 		}
 	}
 	
