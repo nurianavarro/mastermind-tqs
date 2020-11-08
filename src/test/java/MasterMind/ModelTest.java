@@ -112,12 +112,8 @@ public class ModelTest {
 		guessedPattern.add(4);
 		m.setGuessedPattern(guessedPattern);
 		m.checkResult();
-		boolean result = false;
-		if(m.getCountW()==m.getLENGTH()) {
-			result = true;
-		}
 		//Test if it is the same result
-		assertEquals(result,true);
+		assertEquals(m.hasWon(),true);
 		
 		//Test if is in different position
 		MockModel m2 = new MockModel(4);
@@ -129,10 +125,6 @@ public class ModelTest {
 		guessedPattern2.add(3);
 		m2.setGuessedPattern(guessedPattern2);
 		m2.checkResult();
-		boolean result2 = false;
-		if(m2.getCountW()==m2.getLENGTH()) {
-			result2 = true;
-		}
-		assertEquals(result2,false);
+		assertEquals(m2.hasWon(),false);
 	}
 }

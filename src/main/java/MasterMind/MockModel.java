@@ -18,10 +18,6 @@ public class MockModel extends Model {
 		return true;
 	}
 	
-	boolean hasWon(){
-		return victory;
-	}
-	
 	
 	
 }

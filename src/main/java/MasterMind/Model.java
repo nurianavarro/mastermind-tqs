@@ -62,7 +62,11 @@ public class Model {
 	}
 	
 	boolean hasWon(){
-		return victory;
+		if(countWhite == LENGTH) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 }
