@@ -10,12 +10,17 @@ public class MockModel extends Model {
 	}
 
 	int getCountW() {return countWhite;}
+	int getCountB() {return countBlack;}
 	public void setRandomPattern(ArrayList<Integer> randomPattern) {
 		this.randomPattern = randomPattern;
 	}
 	
 	boolean isFilled() {
 		return true;
+	}
+	
+	public void resetGuessedPattern(){
+		
 	}
 	
 	

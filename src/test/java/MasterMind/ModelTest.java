@@ -127,4 +127,27 @@ public class ModelTest {
 		m2.checkResult();
 		assertEquals(m2.hasWon(),false);
 	}
+	
+	@Test
+	public void testResetGuessedPattern() {
+		MockModel m = new MockModel(4);
+		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
+		randomPattern.add(1);
+		randomPattern.add(2);
+		randomPattern.add(3);
+		randomPattern.add(4);
+		m.setRandomPattern(randomPattern);
+		ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
+		guessedPattern.add(1);
+		guessedPattern.add(2);
+		guessedPattern.add(3);
+		guessedPattern.add(4);
+		m.setGuessedPattern(guessedPattern);
+		m.checkResult();
+		m.resetGuessedPattern();
+		//Test if countWhite is 0
+		assertEquals(m.getCountW(),0);
+		//Test if countBlack is 0
+		assertEquals(m.getCountB(),0);
+	}
 }
