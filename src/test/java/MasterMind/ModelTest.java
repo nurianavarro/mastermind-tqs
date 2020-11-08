@@ -11,11 +11,6 @@ import org.junit.Test;
 public class ModelTest {
 
 	@Test
-	public void test() {
-		//fail("Not yet implemented");
-	}
-
-	@Test
 	public void testIsFilled() {
 		//Test with shorter pattern
 		Model m = new Model(4);
@@ -48,9 +43,41 @@ public class ModelTest {
 	@Test
 	public void testHasWon() {
 		MockModel m = new MockModel(4);
-		boolean result;
-		result = m.hasWon();
-		assertEquals(result, false);
+		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
+		randomPattern.add(1);
+		randomPattern.add(2);
+		randomPattern.add(3);
+		randomPattern.add(4);
+		m.setRandomPattern(randomPattern);
+		ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
+		guessedPattern.add(1);
+		guessedPattern.add(2);
+		guessedPattern.add(3);
+		guessedPattern.add(4);
+		m.setGuessedPattern(guessedPattern);
+		m.checkResult();
+		boolean result = false;
+		if(m.getCountW()==m.getLENGTH()) {
+			result = true;
+		}
+		//Test if it is the same result
+		assertEquals(result,m.hasWon());
+		
+		//Test if is in different position
+		MockModel m2 = new MockModel(4);
+		m2.setRandomPattern(randomPattern);
+		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
+		guessedPattern2.add(2);
+		guessedPattern2.add(1);
+		guessedPattern2.add(4);
+		guessedPattern2.add(3);
+		m2.setGuessedPattern(guessedPattern2);
+		m2.checkResult();
+		boolean result2 = false;
+		if(m2.getCountW()==m2.getLENGTH()) {
+			result2 = true;
+		}
+		assertEquals(result2,m2.hasWon());
 		
 	}
 	
