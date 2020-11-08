@@ -94,6 +94,14 @@ public class ModelTest {
 			repeatedNumbers = true;
 		}	
 		assertEquals(repeatedNumbers, false);
+		//Test if there is all numbers are between 0 and 9
+		boolean wrongNumber = false;
+		for(int i=0; i<m.getRandomPattern().size(); i++) {
+			if (m.getRandomPattern().get(i) < 0 && m.getRandomPattern().get(i) > 9) {
+				wrongNumber = true;
+			}
+		}
+		assertEquals(wrongNumber, false);
 	}
 	
 	@Test
@@ -113,8 +121,8 @@ public class ModelTest {
 		m.setGuessedPattern(guessedPattern);
 		m.checkResult();
 		//Test if it is the same result
-		assertEquals(m.hasWon(),true);
-		
+		assertEquals(m.getCountW(),4);
+		assertEquals(m.getCountB(),0);
 		//Test if is in different position
 		MockModel m2 = new MockModel(4);
 		m2.setRandomPattern(randomPattern);
@@ -125,7 +133,8 @@ public class ModelTest {
 		guessedPattern2.add(3);
 		m2.setGuessedPattern(guessedPattern2);
 		m2.checkResult();
-		assertEquals(m2.hasWon(),false);
+		assertEquals(m2.getCountW(),0);
+		assertEquals(m2.getCountB(),4);
 	}
 	
 	@Test

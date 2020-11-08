@@ -35,7 +35,7 @@ public class Model {
 			Random randomGenerator = new Random();
 			if(randomPattern.size() < LENGTH) {
 				while(repeatedNumber) {
-					int randomNumber = randomGenerator.nextInt(7);
+					int randomNumber = randomGenerator.nextInt(10);
 					if(!randomPattern.contains(randomNumber)) {
 						randomPattern.add(randomNumber);
 						repeatedNumber = false;

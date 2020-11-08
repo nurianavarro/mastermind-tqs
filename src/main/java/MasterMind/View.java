@@ -13,11 +13,16 @@ public class View {
 	
 	public void displayInstructions(){
 		System.out.println("INSTRUCTIONS");
-		System.out.println("You can combinate numbers from 1 to 9");
+		System.out.println("You can combine numbers from 1 to 9");
 		System.out.println("The combination has " + LENGTH + " numbers");
 		System.out.println("No duplicates are allowed");
-		System.out.println("White indicates right number and right position");
-		System.out.println("Black indicates right number but wrong position");
+		System.out.println("White (W)  indicates right number and right position");
+		System.out.println("Black (B) indicates right number but wrong position");
+	}
+	
+	public void displayHelp() {
+		System.out.println("Available commands:");
+		
 	}
 	
 	public void startNewGame() {
