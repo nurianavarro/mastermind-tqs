@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Model {
-	boolean victory = false;
-	int LENGTH = 0;
-	ArrayList<Integer> randomPattern = new ArrayList<Integer>();
-	ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
-	int countWhite = 0;
-	int countBlack = 0;
+	private int LENGTH = 0;
+	private ArrayList<Integer> randomPattern = new ArrayList<Integer>();
+	private ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
+	private int countWhite = 0;
+	private int countBlack = 0;
 	
 	public Model(int LENGTH){
 		this.LENGTH = LENGTH;
@@ -21,6 +20,11 @@ public class Model {
 	int getLENGTH() {return LENGTH;}
 	ArrayList<Integer> getRandomPattern(){return randomPattern;}
 	ArrayList<Integer> getGuessedPattern(){return guessedPattern;}
+	int getCountW() {return countWhite;}
+	int getCountB() {return countBlack;}
+	public void setRandomPattern(ArrayList<Integer> randomPattern) {
+		this.randomPattern = randomPattern;
+	}
 	public void setGuessedPattern(ArrayList<Integer> guessedPattern) {
 		this.guessedPattern = guessedPattern;
 	}

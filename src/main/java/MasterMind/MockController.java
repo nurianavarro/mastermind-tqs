@@ -15,10 +15,6 @@ public class MockController extends Controller{
 	}
 	
 	public void newGame() {
-		view.startNewGame();
-		turn = initialTurns;
-		model.generateRandomPattern();
-		
 		
 	}
 	

@@ -8,6 +8,7 @@ public class View {
 		this.turn = turns;
 	}
 	
+	int getTurn() {return turn;}
 	public void setTurn(int turn) {this.turn = turn;}
 	
 	public void displayInstructions(){
