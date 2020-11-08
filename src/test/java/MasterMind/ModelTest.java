@@ -18,6 +18,12 @@ public class ModelTest {
 	@Test
 	public void testIsFilled() {
 		MockModel m = new MockModel(4);
+		m.generateRandomPattern();
+		ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
+		guessedPattern.add(1);
+		guessedPattern.add(2);
+		guessedPattern.add(3);
+		m.setGuessedPattern(guessedPattern);
 		boolean result;
 		result = m.isFilled();
 		assertEquals(result, false);
@@ -31,14 +37,7 @@ public class ModelTest {
 		assertEquals(result, false);
 		
 	}
-	@Test
-	public void testCheckIfContains() {
-		MockModel m = new MockModel(4);
-		boolean result;
-		result = m.checkIfContains();
-		assertEquals(result, true);
-		
-	}
+	
 	@Test
 	public void testGenerateRandomPattern() {
 		Model m = new Model(4);

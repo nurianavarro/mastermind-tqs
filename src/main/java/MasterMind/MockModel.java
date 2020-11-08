@@ -15,6 +15,7 @@ public class MockModel extends Model {
 	}
 	
 	boolean isFilled() {
+		filled = true;
 		return filled;
 	}
 	
@@ -22,9 +23,6 @@ public class MockModel extends Model {
 		return victory;
 	}
 	
-	boolean checkIfContains() {
-		return true;
-	}
 	
 	
 }

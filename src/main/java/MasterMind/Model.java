@@ -62,7 +62,4 @@ public class Model {
 		return victory;
 	}
 	
-	boolean checkIfContains() {
-		return true;
-	}
 }
