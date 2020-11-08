@@ -17,7 +17,8 @@ public class ModelTest {
 
 	@Test
 	public void testIsFilled() {
-		MockModel m = new MockModel(4);
+		//Test with shorter pattern
+		Model m = new Model(4);
 		m.generateRandomPattern();
 		ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
 		guessedPattern.add(1);
@@ -26,7 +27,22 @@ public class ModelTest {
 		m.setGuessedPattern(guessedPattern);
 		boolean result;
 		result = m.isFilled();
+		//It should be false because the length is 3
 		assertEquals(result, false);
+		
+		//Test with the right length
+		Model m2 = new Model(4);
+		m2.generateRandomPattern();
+		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
+		guessedPattern2.add(1);
+		guessedPattern2.add(2);
+		guessedPattern2.add(3);
+		guessedPattern2.add(4);
+		m2.setGuessedPattern(guessedPattern2);
+		boolean result2;
+		result2 = m2.isFilled();
+		//It should be true because the length is 4
+		assertEquals(result2, true);
 		
 	}
 	@Test

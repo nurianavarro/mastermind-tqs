@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Model {
-	boolean filled = false;
 	boolean victory = false;
 	int LENGTH = 0;
 	ArrayList<Integer> randomPattern = new ArrayList<Integer>();
@@ -55,7 +54,11 @@ public class Model {
 	}
 	
 	boolean isFilled() {
-		return filled;
+		if(guessedPattern.size() == LENGTH) {
+			return true;
+		}else {
+			return false;
+		}	
 	}
 	
 	boolean hasWon(){

@@ -15,8 +15,7 @@ public class MockModel extends Model {
 	}
 	
 	boolean isFilled() {
-		filled = true;
-		return filled;
+		return true;
 	}
 	
 	boolean hasWon(){
