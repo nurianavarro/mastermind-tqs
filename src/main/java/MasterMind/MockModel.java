@@ -19,9 +19,7 @@ public class MockModel extends Model {
 		return true;
 	}
 	
-	public void resetGuessedPattern(){
-		
-	}
+	
 	
 	
 	

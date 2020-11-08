@@ -69,4 +69,9 @@ public class Model {
 		}
 	}
 	
+	public void resetGuessedPattern(){
+		countWhite = 0;
+		countBlack = 0;
+	}
+	
 }
