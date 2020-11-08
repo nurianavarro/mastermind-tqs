@@ -9,6 +9,8 @@ public class Model {
 	int LENGTH = 0;
 	ArrayList<Integer> randomPattern = new ArrayList<Integer>();
 	ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
+	int countWhite = 0;
+	int countBlack = 0;
 	
 	public Model(int LENGTH){
 		this.LENGTH = LENGTH;
@@ -20,9 +22,6 @@ public class Model {
 	ArrayList<Integer> getGuessedPattern(){return guessedPattern;}
 	public void setGuessedPattern(ArrayList<Integer> guessedPattern) {
 		this.guessedPattern = guessedPattern;
-	}
-	public void setRandomPattern(ArrayList<Integer> randomPattern) {
-		this.randomPattern = randomPattern;
 	}
 	
 	public void generateRandomPattern() {
@@ -42,7 +41,15 @@ public class Model {
 	}
 	
 	public void checkResult() {
-		
+		for(int i=0; i<LENGTH; i++) {
+			if(randomPattern.contains(guessedPattern.get(i))) {
+				if(randomPattern.get(i)==guessedPattern.get(i)) {
+					countWhite++;
+				}else {
+					countBlack++;
+				}
+			}
+		}
 	}
 	
 	boolean isFilled() {
