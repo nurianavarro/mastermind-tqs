@@ -23,7 +23,11 @@ public class Controller {
 		//Fixed
 	}
 	
-	public boolean playing() {
-		return false;
+	public boolean isPlaying() {
+		boolean playing = true;
+		if(model.hasWon() || model.getTurn() <= 0) {
+			playing = false;
+		}
+		return playing;
 	}
 }

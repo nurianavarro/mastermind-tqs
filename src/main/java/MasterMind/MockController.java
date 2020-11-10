@@ -26,7 +26,7 @@ public class MockController extends Controller{
 		in.close();
 	}
 	
-	public boolean playing() {
+	public boolean isPlaying() {
 		return false;
 	}
 	

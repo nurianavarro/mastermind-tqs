@@ -40,11 +40,11 @@ public class ControllerTest {
 	}
 	
 	@Test
-	public void testPlaying() {
+	public void testIsPlaying() {
 		// If the user has won
 		View view = new View(LENGTH, turn);
 		Model model = new Model(LENGTH, turn);
-		MockController controller = new MockController(view, model);
+		Controller controller = new Controller(view, model);
 		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
 		randomPattern.add(1);
 		randomPattern.add(2);
@@ -58,19 +58,19 @@ public class ControllerTest {
 		guessedPattern.add(4);
 		model.setGuessedPattern(guessedPattern);
 		model.checkResult();
-		assertFalse(controller.playing());
+		assertFalse(controller.isPlaying());
 		
 		//Test if there is 0 turns
 		View view2 = new View(LENGTH, 0);
 		Model model2 = new Model(LENGTH, 0);
-		MockController controller2 = new MockController(view2, model2);
-		assertFalse(controller2.playing());
+		Controller controller2 = new Controller(view2, model2);
+		assertFalse(controller2.isPlaying());
 		
 		//Test if still playing
 		View view3 = new View(LENGTH, 4);
 		Model model3 = new Model(LENGTH, 4);
-		MockController controller3 = new MockController(view3, model3);
-		assertTrue(controller3.playing());
+		Controller controller3 = new Controller(view3, model3);
+		assertTrue(controller3.isPlaying());
 	}
 
 }
