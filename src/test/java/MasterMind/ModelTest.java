@@ -96,7 +96,7 @@ public class ModelTest {
 		if(set.size() < m.getRandomPattern().size()) {
 			repeatedNumbers = true;
 		}	
-		assertEquals(repeatedNumbers, false);
+		assertFalse(repeatedNumbers);
 		//Test if there is all numbers are between 0 and 9
 		boolean wrongNumber = false;
 		for(int i=0; i<m.getRandomPattern().size(); i++) {
@@ -104,7 +104,7 @@ public class ModelTest {
 				wrongNumber = true;
 			}
 		}
-		assertEquals(wrongNumber, false);
+		assertFalse(wrongNumber);
 	}
 	
 	@Test
@@ -161,10 +161,15 @@ public class ModelTest {
 		assertEquals(m.getCountW(),0);
 		//Test if countBlack is 0
 		assertEquals(m.getCountB(),0);
+		//Test if guessedPattern is empty
+		assertTrue(m.getGuessedPattern().isEmpty());
+		//Test if guessedPattern is empty
+		assertTrue(m.getRandomPattern().isEmpty());
 	}
 	
 	@Test
 	public void testUpdateTurn() {
+		//Test if turn decrements
 		Model m = new Model(LENGTH,turn);
 		m.updateTurn();
 		assertEquals(m.getTurn(),(turn-1));
