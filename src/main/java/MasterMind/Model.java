@@ -79,7 +79,7 @@ public class Model {
 	}
 	
 	public void updateTurn() {
-		
+		this.turn--;
 	}
 	
 	public void resetGuessedPattern(){
