@@ -12,5 +12,6 @@ public class Main {
 		Model model = new Model(LENGTH, turns);
 		Controller controller = new Controller(view, model);
 		controller.newGame();
+		
 	}
 }

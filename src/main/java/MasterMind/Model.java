@@ -23,6 +23,7 @@ public class Model {
 	 //Getters
 	int getLENGTH() {return LENGTH;}
 	int getTurn() {return turn;}
+	int getInitialTurns() {return initialTurns;}
 	ArrayList<Integer> getRandomPattern(){return randomPattern;}
 	ArrayList<Integer> getGuessedPattern(){return guessedPattern;}
 	int getCountW() {return countWhite;}

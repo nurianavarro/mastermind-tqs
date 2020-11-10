@@ -1,5 +1,7 @@
 package MasterMind;
 
+import java.util.Scanner;
+
 public class MockController extends Controller{
 	View view;
 	Model model;
@@ -19,8 +21,13 @@ public class MockController extends Controller{
 	}
 	
 	public void loop() {
+		Scanner in = new Scanner(System.in);
 		
+		in.close();
 	}
 	
+	public boolean playing() {
+		return false;
+	}
 	
 }

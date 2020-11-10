@@ -13,6 +13,8 @@ public class ModelTest {
 	int LENGTH = 4;
 	int turn = 10;
 
+	//FER TEST DEL CONSTRUCTOR 
+	
 	@Test
 	public void testIsFilled() {
 		//Test with shorter pattern
@@ -182,6 +184,5 @@ public class ModelTest {
 		Model m = new Model(LENGTH,turn);
 		m.updateTurn();
 		assertEquals(m.getTurn(),(turn-1));
-		
 	}
 }

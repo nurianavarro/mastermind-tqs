@@ -22,4 +22,8 @@ public class Controller {
 	public void loop() {
 		//Fixed
 	}
+	
+	public boolean playing() {
+		return false;
+	}
 }
