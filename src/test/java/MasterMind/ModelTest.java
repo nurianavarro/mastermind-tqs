@@ -38,7 +38,7 @@ public class ModelTest {
 		//It should be true because the length is 4
 		assertTrue(m2.isFilled());
 		
-		//Test with shorter pattern
+		//Test with larger pattern
 		Model m3 = new Model(LENGTH,turn);
 		m3.generateRandomPattern();
 		ArrayList<Integer> guessedPattern3 = new ArrayList<Integer>();
