@@ -19,9 +19,7 @@ public class MockController extends Controller{
 	}
 	
 	public void loop() {
-		while(true) {
-			
-		}
+		
 	}
 	
 	

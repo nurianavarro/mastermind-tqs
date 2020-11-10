@@ -23,10 +23,8 @@ public class ModelTest {
 		guessedPattern.add(2);
 		guessedPattern.add(3);
 		m.setGuessedPattern(guessedPattern);
-		boolean result;
-		result = m.isFilled();
 		//It should be false because the length is 3
-		assertEquals(result, false);
+		assertFalse(m.isFilled());
 		
 		//Test with the right length
 		Model m2 = new Model(LENGTH,turn);
@@ -37,10 +35,21 @@ public class ModelTest {
 		guessedPattern2.add(3);
 		guessedPattern2.add(4);
 		m2.setGuessedPattern(guessedPattern2);
-		boolean result2;
-		result2 = m2.isFilled();
 		//It should be true because the length is 4
-		assertEquals(result2, true);
+		assertTrue(m2.isFilled());
+		
+		//Test with shorter pattern
+		Model m3 = new Model(LENGTH,turn);
+		m3.generateRandomPattern();
+		ArrayList<Integer> guessedPattern3 = new ArrayList<Integer>();
+		guessedPattern.add(1);
+		guessedPattern.add(2);
+		guessedPattern.add(3);
+		guessedPattern.add(4);
+		guessedPattern.add(5);
+		m3.setGuessedPattern(guessedPattern3);
+		//It should be false because the length is 5
+		assertFalse(m3.isFilled());
 		
 	}
 	@Test
