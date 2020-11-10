@@ -13,8 +13,8 @@ public class ControllerTest {
 	@Test
 	public void testNewGame() {
 		View view = new View(LENGTH, turn);
-		MockModel model = new MockModel(LENGTH);
-		MockController controller = new MockController(view, model, turn);
+		MockModel model = new MockModel(LENGTH, turn);
+		MockController controller = new MockController(view, model);
 		//Create a game to initialize variables
 		model.generateRandomPattern();
 		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
@@ -35,6 +35,14 @@ public class ControllerTest {
 		assertEquals(model.getCountW(), 0);
 		assertEquals(model.getCountB(), 0);
 		assertEquals(view.getTurn(), turn);
+	}
+	@Test
+	public void testLoop() {
+		View view = new View(LENGTH, turn);
+		Model model = new Model(LENGTH, turn);
+		MockController controller = new MockController(view, model);
+		controller.newGame();
+		
 	}
 
 }

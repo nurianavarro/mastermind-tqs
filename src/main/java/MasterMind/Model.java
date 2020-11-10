@@ -9,15 +9,20 @@ public class Model {
 	private ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
 	private int countWhite = 0;
 	private int countBlack = 0;
+	int turn;
+	int initialTurns;
 	
-	public Model(int LENGTH){
+	public Model(int LENGTH, int turn){
 		this.LENGTH = LENGTH;
 		countWhite = 0;
 		countBlack = 0;
+		this.turn = turn;
+		this.initialTurns = turn;
 	}
 	
 	 //Getters
 	int getLENGTH() {return LENGTH;}
+	int getTurn() {return turn;}
 	ArrayList<Integer> getRandomPattern(){return randomPattern;}
 	ArrayList<Integer> getGuessedPattern(){return guessedPattern;}
 	int getCountW() {return countWhite;}
@@ -71,6 +76,10 @@ public class Model {
 		}else {
 			return false;
 		}
+	}
+	
+	public void updateTurn() {
+		
 	}
 	
 	public void resetGuessedPattern(){

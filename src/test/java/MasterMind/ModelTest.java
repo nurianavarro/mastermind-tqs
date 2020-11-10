@@ -9,11 +9,14 @@ import java.util.Set;
 import org.junit.Test;
 
 public class ModelTest {
+	
+	int LENGTH = 4;
+	int turn = 10;
 
 	@Test
 	public void testIsFilled() {
 		//Test with shorter pattern
-		Model m = new Model(4);
+		Model m = new Model(LENGTH,turn);
 		m.generateRandomPattern();
 		ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
 		guessedPattern.add(1);
@@ -26,7 +29,7 @@ public class ModelTest {
 		assertEquals(result, false);
 		
 		//Test with the right length
-		Model m2 = new Model(4);
+		Model m2 = new Model(LENGTH,turn);
 		m2.generateRandomPattern();
 		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
 		guessedPattern2.add(1);
@@ -42,7 +45,7 @@ public class ModelTest {
 	}
 	@Test
 	public void testHasWon() {
-		MockModel m = new MockModel(4);
+		MockModel m = new MockModel(LENGTH,turn);
 		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
 		randomPattern.add(1);
 		randomPattern.add(2);
@@ -64,7 +67,7 @@ public class ModelTest {
 		assertEquals(result,m.hasWon());
 		
 		//Test if is in different position
-		MockModel m2 = new MockModel(4);
+		MockModel m2 = new MockModel(LENGTH,turn);
 		m2.setRandomPattern(randomPattern);
 		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
 		guessedPattern2.add(2);
@@ -83,7 +86,7 @@ public class ModelTest {
 	
 	@Test
 	public void testGenerateRandomPattern() {
-		Model m = new Model(4);
+		Model m = new Model(LENGTH,turn);
 		m.generateRandomPattern();
 		//Test if size of array is equal to LENGTH
 		assertEquals(m.getRandomPattern().size(), m.getLENGTH());
@@ -106,7 +109,7 @@ public class ModelTest {
 	
 	@Test
 	public void testCheckResult() {
-		MockModel m = new MockModel(4);
+		MockModel m = new MockModel(LENGTH,turn);
 		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
 		randomPattern.add(1);
 		randomPattern.add(2);
@@ -124,7 +127,7 @@ public class ModelTest {
 		assertEquals(m.getCountW(),4);
 		assertEquals(m.getCountB(),0);
 		//Test if is in different position
-		MockModel m2 = new MockModel(4);
+		MockModel m2 = new MockModel(LENGTH,turn);
 		m2.setRandomPattern(randomPattern);
 		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
 		guessedPattern2.add(2);
@@ -139,7 +142,7 @@ public class ModelTest {
 	
 	@Test
 	public void testResetGuessedPattern() {
-		MockModel m = new MockModel(4);
+		MockModel m = new MockModel(LENGTH,turn);
 		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
 		randomPattern.add(1);
 		randomPattern.add(2);
@@ -158,5 +161,13 @@ public class ModelTest {
 		assertEquals(m.getCountW(),0);
 		//Test if countBlack is 0
 		assertEquals(m.getCountB(),0);
+	}
+	
+	@Test
+	public void testUpdateTurn() {
+		Model m = new Model(LENGTH,turn);
+		m.updateTurn();
+		assertEquals(m.getTurn(),(turn-1));
+		
 	}
 }
