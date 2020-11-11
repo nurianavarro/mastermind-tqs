@@ -73,10 +73,17 @@ public class Model {
 			if(randomPattern.contains(guessedPattern.get(i))) {
 				if(randomPattern.get(i)==guessedPattern.get(i)) {
 					countWhite++;
+					//Correct number and position = W
+					hitsPattern[this.initialTurns - this.turn].add("W");
 				}else {
 					countBlack++;
+					//Correct number but wrong position = B
+					hitsPattern[this.initialTurns - this.turn].add("B");
 				}
-			} 
+			} else {
+				//Wrong number = X
+				hitsPattern[this.initialTurns - this.turn].add("X");
+			}
 		}
 	}
 	
