@@ -27,6 +27,21 @@ public class ModelTest {
 	}
 	
 	@Test
+	public void testBuildGuessedPattern() {
+		Model m = new Model(LENGTH,turn);
+		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
+		guessedPattern2.add(1);
+		guessedPattern2.add(2);
+		guessedPattern2.add(3);
+		guessedPattern2.add(4);
+		m.buildGuessedPattern(1);
+		m.buildGuessedPattern(2);
+		m.buildGuessedPattern(3);
+		m.buildGuessedPattern(4);
+		assertEquals(m.getGuessedPattern(),guessedPattern2);
+	}
+	
+	@Test
 	public void testIsFilled() {
 		//Test with shorter pattern
 		Model m = new Model(LENGTH,turn);

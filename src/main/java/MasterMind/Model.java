@@ -52,6 +52,10 @@ public class Model {
 		this.guessedPattern = guessedPattern;
 	}
 	
+	public void buildGuessedPattern(int val) {
+		
+	}
+	
 	public void generateRandomPattern() {
 		for (int i=0; i<LENGTH; i++) {
 			boolean repeatedNumber = true;
