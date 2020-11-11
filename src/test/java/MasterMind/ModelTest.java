@@ -50,6 +50,9 @@ public class ModelTest {
 	
 	@Test
 	public void testIsFilled() {
+		//Mock
+		MockModel mock = new MockModel(LENGTH,turn);
+		assertFalse(mock.isFilled());
 		//Test with shorter pattern
 		Model m = new Model(LENGTH,turn);
 		m.generateRandomPattern();
@@ -89,7 +92,10 @@ public class ModelTest {
 	}
 	@Test
 	public void testHasWon() {
-		MockModel m = new MockModel(LENGTH,turn);
+		//Mock
+		MockModel mock = new MockModel(LENGTH,turn);
+		assertFalse(mock.hasWon());
+		Model m = new Model(LENGTH,turn);
 		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
 		randomPattern.add(1);
 		randomPattern.add(2);
@@ -111,7 +117,7 @@ public class ModelTest {
 		assertEquals(result,m.hasWon());
 		
 		//Test if is in different position
-		MockModel m2 = new MockModel(LENGTH,turn);
+		Model m2 = new Model(LENGTH,turn);
 		m2.setRandomPattern(randomPattern);
 		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
 		guessedPattern2.add(2);
@@ -125,7 +131,7 @@ public class ModelTest {
 			result2 = true;
 		}
 		assertEquals(result2,m2.hasWon());
-		
+		//ADD DELETIONS LATER
 	}
 	
 	@Test
@@ -153,7 +159,7 @@ public class ModelTest {
 	
 	@Test
 	public void testCheckResult() {
-		MockModel m = new MockModel(LENGTH,turn);
+		Model m = new Model(LENGTH,turn);
 		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
 		randomPattern.add(1);
 		randomPattern.add(2);
@@ -178,7 +184,7 @@ public class ModelTest {
 		assertEquals(m.getHitsPattern()[0], hitsPattern);
 		
 		//Test if is in different position
-		MockModel m2 = new MockModel(LENGTH,turn);
+		Model m2 = new Model(LENGTH,turn);
 		m2.setRandomPattern(randomPattern);
 		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
 		ArrayList<String> hitsPattern2 = new ArrayList<String>();
@@ -195,6 +201,8 @@ public class ModelTest {
 		assertEquals(m2.getCountW(),0);
 		assertEquals(m2.getCountB(),4);
 		assertEquals(m2.getHitsPattern()[0], hitsPattern2);
+		
+		//ADD LAST TWO LINES
 	}
 	
 	@Test

@@ -35,6 +35,7 @@ public class ControllerTest {
 		View view = new View(LENGTH);
 		Model model = new Model(LENGTH, turn);
 		MockController controller = new MockController(view, model);
+		
 		//FALSE = finish execution
 		//TRUE = continue
 		
@@ -42,12 +43,20 @@ public class ControllerTest {
 		Scanner input = new Scanner("quit");
 		assertFalse(controller.loop(input));
 		
+		//With option 'reset' it should return true
+		input = new Scanner("reset");
+		assertTrue(controller.loop(input));
+		
 		//With option 'instructions' it should return true
 		input = new Scanner("instructions");
 		assertTrue(controller.loop(input));
 		
 		//With wrong option it should continue execution
 		input = new Scanner("sfgf");
+		assertTrue(controller.loop(input));
+		
+		//With option 'guess' it should return true
+		input = new Scanner("guess");
 		assertTrue(controller.loop(input));
 		
 		input.close();
@@ -87,5 +96,6 @@ public class ControllerTest {
 		Controller controller3 = new Controller(view3, model3);
 		assertTrue(controller3.isPlaying());
 	}
+	
 
 }

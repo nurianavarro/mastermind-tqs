@@ -16,7 +16,7 @@ public class Main {
 
 		Scanner input = new Scanner(System.in);
 		boolean playing = true;
-		while(controller.isPlaying() && playing) {
+		while(playing) {
 			playing = controller.loop(input);
 		}
 		

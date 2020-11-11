@@ -5,12 +5,12 @@ import java.util.Random;
 
 public class Model {
 	private int LENGTH = 0;
-	private ArrayList<Integer> randomPattern = new ArrayList<Integer>();
-	private ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
+	int turn = 0;
+	int initialTurns = 10;
 	private int countWhite = 0;
 	private int countBlack = 0;
-	int turn;
-	int initialTurns=10;
+	private ArrayList<Integer> randomPattern = new ArrayList<Integer>();
+	private ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
 	private ArrayList<Integer>[] guessedPatterns = new ArrayList[initialTurns];
 	private ArrayList<String>[] hitsPattern = new ArrayList[initialTurns];
 	
@@ -39,12 +39,15 @@ public class Model {
 	int getLENGTH() {return LENGTH;}
 	int getTurn() {return turn;}
 	int getInitialTurns() {return initialTurns;}
+	int getCountW() {return countWhite;}
+	int getCountB() {return countBlack;}
+	
 	ArrayList<Integer> getRandomPattern(){return randomPattern;}
 	ArrayList<Integer> getGuessedPattern(){return guessedPattern;}
 	ArrayList<Integer>[] getGuessedPatterns(){return guessedPatterns;}
 	ArrayList<String>[] getHitsPattern(){return hitsPattern;}
-	int getCountW() {return countWhite;}
-	int getCountB() {return countBlack;}
+	
+	//Setters
 	public void setRandomPattern(ArrayList<Integer> randomPattern) {
 		this.randomPattern = randomPattern;
 	}
@@ -52,10 +55,13 @@ public class Model {
 		this.guessedPattern = guessedPattern;
 	}
 	
+	
 	public void buildGuessedPattern(int val) {
 		this.guessedPattern.add(val);
 		int current = this.initialTurns - this.turn;
 		this.guessedPatterns[current].add(val);
+		this.countWhite = 0;
+		this.countBlack = 0;
 	}
 	
 	public void generateRandomPattern() {
@@ -74,6 +80,7 @@ public class Model {
 		}
 	}
 	
+	
 	public void checkResult() {
 		for(int i=0; i<LENGTH; i++) {
 			if(randomPattern.contains(guessedPattern.get(i))) {
@@ -91,6 +98,11 @@ public class Model {
 				hitsPattern[this.initialTurns - this.turn].add("X");
 			}
 		}
+		
+		//Decrement turn
+		this.updateTurn();
+		//Clear guessedPattern for the next iteration
+		this.guessedPattern.clear();
 	}
 	
 	boolean isFilled() {

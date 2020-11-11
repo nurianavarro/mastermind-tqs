@@ -14,7 +14,6 @@ public class MockController extends Controller{
 	}
 	
 	public void newGame() {
-		view.startNewGame();
 		model.generateRandomPattern();
 		model.resetGuessedPattern();
 		this.loop();

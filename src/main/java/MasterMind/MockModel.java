@@ -1,6 +1,7 @@
 package MasterMind;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MockModel extends Model {
 	
@@ -8,10 +9,37 @@ public class MockModel extends Model {
 		super(LENGTH, turn);
 	}
 	
-	boolean isFilled() {
-		return true;
+	public void initializeLists() {
+
 	}
 	
+	
+	public void buildGuessedPattern(int val) {
+
+	}
+	
+	public void generateRandomPattern() {
+		
+	}
+	
+	
+	public void checkResult() {
+
+	}
+	
+	boolean isFilled() {
+		return false;
+	}
+	
+	boolean hasWon(){
+		return false;
+	}
+	
+	public void updateTurn() {
+
+	}
+	
+
 	
 	
 	
