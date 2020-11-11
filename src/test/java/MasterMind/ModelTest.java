@@ -13,7 +13,18 @@ public class ModelTest {
 	int LENGTH = 4;
 	int turn = 10;
 
-	//FER TEST DEL CONSTRUCTOR 
+	@Test
+	public void testConstructor() {
+		Model m = new Model(LENGTH,turn);
+		assertEquals(m.getCountB(), 0);
+		assertEquals(m.getCountW(), 0);
+		assertEquals(m.getTurn(), turn);
+		assertEquals(m.getInitialTurns(), turn);
+		//The guessedPattern should be empty
+		assertTrue(m.getGuessedPattern().isEmpty());
+		//It has to create a random pattern, so it should not be empty
+		assertFalse(m.getRandomPattern().isEmpty());
+	}
 	
 	@Test
 	public void testIsFilled() {
@@ -176,6 +187,8 @@ public class ModelTest {
 		assertTrue(m.getGuessedPattern().isEmpty());
 		//Test if guessedPattern is empty
 		assertTrue(m.getRandomPattern().isEmpty());
+		
+		//Test if turn has the default value
 	}
 	
 	@Test
