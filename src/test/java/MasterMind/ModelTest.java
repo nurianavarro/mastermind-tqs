@@ -30,10 +30,15 @@ public class ModelTest {
 	public void testBuildGuessedPattern() {
 		Model m = new Model(LENGTH,turn);
 		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
+		ArrayList<Integer>[] guessedPatterns = new ArrayList[1];
 		guessedPattern2.add(1);
 		guessedPattern2.add(2);
 		guessedPattern2.add(3);
 		guessedPattern2.add(4);
+		guessedPatterns[0].add(1);
+		guessedPatterns[0].add(2);
+		guessedPatterns[0].add(3);
+		guessedPatterns[0].add(4);
 		m.buildGuessedPattern(1);
 		m.buildGuessedPattern(2);
 		m.buildGuessedPattern(3);
