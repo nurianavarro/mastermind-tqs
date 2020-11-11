@@ -18,7 +18,25 @@ public class Controller {
 	}
 	
 	public boolean loop(Scanner input) {
-		
+		this.view.displayHelp();
+		int length = this.model.getLENGTH();
+		String line = input.nextLine();
+		String[] words = line.split("\\s+");
+		if(words.length > 0) {
+			if (words[0].equals("quit")) {
+                return false;
+            } else if (words[0].equals("reset")) {
+                this.model.resetGuessedPattern();
+            } else if (words[0].equals("instructions")) {
+                this.view.displayInstructions();
+            } else if (words[0].equals("guess")) {
+            	
+            } else {
+            	this.view.displayError();
+            }
+		} else {
+			this.view.displayError();
+		}
 
 		return true;
 	}
