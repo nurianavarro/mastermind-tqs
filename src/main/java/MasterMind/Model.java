@@ -10,7 +10,7 @@ public class Model {
 	private int countWhite = 0;
 	private int countBlack = 0;
 	int turn;
-	int initialTurns;
+	int initialTurns=10;
 	private ArrayList<Integer>[] guessedPatterns = new ArrayList[initialTurns];
 	private ArrayList<String>[] hitsPattern = new ArrayList[initialTurns];
 	
@@ -76,7 +76,7 @@ public class Model {
 				}else {
 					countBlack++;
 				}
-			}
+			} 
 		}
 	}
 	

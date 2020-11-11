@@ -139,27 +139,40 @@ public class ModelTest {
 		randomPattern.add(4);
 		m.setRandomPattern(randomPattern);
 		ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
+		ArrayList<String> hitsPattern = new ArrayList<String>();
 		guessedPattern.add(1);
 		guessedPattern.add(2);
 		guessedPattern.add(3);
 		guessedPattern.add(4);
+		hitsPattern.add("W");
+		hitsPattern.add("W");
+		hitsPattern.add("W");
+		hitsPattern.add("W");
 		m.setGuessedPattern(guessedPattern);
 		m.checkResult();
 		//Test if it is the same result
 		assertEquals(m.getCountW(),4);
 		assertEquals(m.getCountB(),0);
+		assertEquals(m.getHitsPattern()[0], hitsPattern);
+		
 		//Test if is in different position
 		MockModel m2 = new MockModel(LENGTH,turn);
 		m2.setRandomPattern(randomPattern);
 		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
+		ArrayList<String> hitsPattern2 = new ArrayList<String>();
 		guessedPattern2.add(2);
 		guessedPattern2.add(1);
 		guessedPattern2.add(4);
 		guessedPattern2.add(3);
+		hitsPattern2.add("B");
+		hitsPattern2.add("B");
+		hitsPattern2.add("B");
+		hitsPattern2.add("B");
 		m2.setGuessedPattern(guessedPattern2);
 		m2.checkResult();
 		assertEquals(m2.getCountW(),0);
 		assertEquals(m2.getCountB(),4);
+		assertEquals(m2.getHitsPattern()[0], hitsPattern2);
 	}
 	
 	@Test
