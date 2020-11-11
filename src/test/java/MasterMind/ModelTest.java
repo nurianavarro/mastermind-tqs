@@ -31,6 +31,7 @@ public class ModelTest {
 		Model m = new Model(LENGTH,turn);
 		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
 		ArrayList<Integer>[] guessedPatterns = new ArrayList[1];
+		guessedPatterns[0] = new ArrayList<Integer>();
 		guessedPattern2.add(1);
 		guessedPattern2.add(2);
 		guessedPattern2.add(3);
@@ -44,6 +45,7 @@ public class ModelTest {
 		m.buildGuessedPattern(3);
 		m.buildGuessedPattern(4);
 		assertEquals(m.getGuessedPattern(),guessedPattern2);
+		assertEquals(m.getGuessedPatterns()[0], guessedPatterns[0]);
 	}
 	
 	@Test

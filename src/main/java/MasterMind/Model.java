@@ -53,7 +53,9 @@ public class Model {
 	}
 	
 	public void buildGuessedPattern(int val) {
-		
+		this.guessedPattern.add(val);
+		int current = this.initialTurns - this.turn;
+		this.guessedPatterns[current].add(val);
 	}
 	
 	public void generateRandomPattern() {
