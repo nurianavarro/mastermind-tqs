@@ -35,10 +35,23 @@ public class ControllerTest {
 		View view = new View(LENGTH);
 		Model model = new Model(LENGTH, turn);
 		MockController controller = new MockController(view, model);
-		Scanner input = new Scanner(System.in);
-		assertFalse(controller.loop(input));
-		input.close();
+		//FALSE = finish execution
+		//TRUE = continue
 		
+		//With option 'quit' it should return false
+		Scanner input = new Scanner("quit");
+		assertFalse(controller.loop(input));
+		
+		//With option 'instructions' it should return true
+		input = new Scanner("instructions");
+		assertTrue(controller.loop(input));
+		
+		//With wrong option it should continue execution
+		input = new Scanner("sfgf");
+		assertTrue(controller.loop(input));
+		
+		input.close();
+
 	}
 	
 	@Test

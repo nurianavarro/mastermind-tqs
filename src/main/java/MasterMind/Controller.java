@@ -18,7 +18,9 @@ public class Controller {
 	}
 	
 	public boolean loop(Scanner input) {
-		return false;
+		
+
+		return true;
 	}
 	
 	public boolean isPlaying() {
