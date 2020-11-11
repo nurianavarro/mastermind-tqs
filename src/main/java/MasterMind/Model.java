@@ -11,6 +11,8 @@ public class Model {
 	private int countBlack = 0;
 	int turn;
 	int initialTurns;
+	private ArrayList<Integer>[] guessedPatterns = new ArrayList[initialTurns];
+	private ArrayList<String>[] hitsPattern = new ArrayList[initialTurns];
 	
 	public Model(int LENGTH, int turn){
 		this.LENGTH = LENGTH;
@@ -19,8 +21,18 @@ public class Model {
 		this.turn = turn;
 		this.initialTurns = turn;
 		guessedPattern.clear();
-		randomPattern.clear();
+		randomPattern.clear();		
+		//initializeLists
+		this.initializeLists();
+		//generate the winner pattern
 		this.generateRandomPattern();
+	}
+	
+	public void initializeLists() {
+		for (int i=0; i<this.initialTurns; i++) {
+			guessedPatterns[i] = new ArrayList<Integer>();
+			hitsPattern[i] = new ArrayList<String>();
+		}
 	}
 	
 	 //Getters
@@ -29,6 +41,8 @@ public class Model {
 	int getInitialTurns() {return initialTurns;}
 	ArrayList<Integer> getRandomPattern(){return randomPattern;}
 	ArrayList<Integer> getGuessedPattern(){return guessedPattern;}
+	ArrayList<Integer>[] getGuessedPatterns(){return guessedPatterns;}
+	ArrayList<String>[] getHitsPattern(){return hitsPattern;}
 	int getCountW() {return countWhite;}
 	int getCountB() {return countBlack;}
 	public void setRandomPattern(ArrayList<Integer> randomPattern) {
