@@ -206,7 +206,10 @@ public class ModelTest {
 		assertEquals(m2.getCountB(),4);
 		assertEquals(m2.getHitsPattern()[0], hitsPattern2);
 		
-		//ADD LAST TWO LINES
+		//We have to make sure that the turn has been decremented
+		assertEquals(m.getTurn(), (turn-1));
+		//GuessedPattern needs to be empty for the next iteration
+		assertTrue(m.getGuessedPattern().isEmpty());
 	}
 	
 	@Test

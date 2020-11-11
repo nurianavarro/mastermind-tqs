@@ -100,9 +100,9 @@ public class Model {
 		}
 		
 		//Decrement turn
-		this.updateTurn();
+		//this.updateTurn();
 		//Clear guessedPattern for the next iteration
-		this.guessedPattern.clear();
+		//this.guessedPattern.clear();
 	}
 	
 	boolean isFilled() {
