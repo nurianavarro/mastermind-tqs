@@ -48,7 +48,7 @@ public class ModelTest {
 		assertEquals(m.getGuessedPatterns()[0], guessedPatterns[0]);
 		//Every time we are building the pattern, the hits have
 		//to be reseted
-		assertEquals(m.getCountW(),2);
+		assertEquals(m.getCountW(),0);
 		assertEquals(m.getCountB(),0);
 	}
 	
