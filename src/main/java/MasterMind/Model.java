@@ -18,6 +18,9 @@ public class Model {
 		countBlack = 0;
 		this.turn = turn;
 		this.initialTurns = turn;
+		guessedPattern.clear();
+		randomPattern.clear();
+		this.generateRandomPattern();
 	}
 	
 	 //Getters
