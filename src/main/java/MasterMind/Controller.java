@@ -10,17 +10,15 @@ public class Controller {
 	public Controller(View v, Model m){
 		view = v;
 		model = m;
-		view.turn = 9;
 	}
 
 	public void newGame() {
 		model.generateRandomPattern();
 		model.resetGuessedPattern();
-		this.loop();
 	}
 	
-	public void loop() {
-		//Fixed
+	public boolean loop(Scanner input) {
+		return true;
 	}
 	
 	public boolean isPlaying() {

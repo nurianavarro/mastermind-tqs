@@ -3,6 +3,7 @@ package MasterMind;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import org.junit.Test;
 
@@ -12,9 +13,9 @@ public class ControllerTest {
 	
 	@Test
 	public void testNewGame() {
-		View view = new View(LENGTH, turn);
+		View view = new View(LENGTH);
 		MockModel model = new MockModel(LENGTH, turn);
-		MockController controller = new MockController(view, model);
+		Controller controller = new Controller(view, model);
 		//Create a game to initialize variables
 		model.generateRandomPattern();
 		ArrayList<Integer> guessedPattern = new ArrayList<Integer>();
@@ -28,21 +29,22 @@ public class ControllerTest {
 		controller.newGame();
 		assertEquals(model.getCountW(), 0);
 		assertEquals(model.getCountB(), 0);
-		assertEquals(view.getTurn(), turn);
 	}
 	@Test
 	public void testLoop() {
-		View view = new View(LENGTH, turn);
+		View view = new View(LENGTH);
 		Model model = new Model(LENGTH, turn);
 		MockController controller = new MockController(view, model);
-		controller.newGame();
+		Scanner input = new Scanner(System.in);
+		assertFalse(controller.loop(input));
+		input.close();
 		
 	}
 	
 	@Test
 	public void testIsPlaying() {
 		// If the user has won
-		View view = new View(LENGTH, turn);
+		View view = new View(LENGTH);
 		Model model = new Model(LENGTH, turn);
 		Controller controller = new Controller(view, model);
 		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
@@ -61,13 +63,13 @@ public class ControllerTest {
 		assertFalse(controller.isPlaying());
 		
 		//Test if there is 0 turns
-		View view2 = new View(LENGTH, 0);
-		Model model2 = new Model(LENGTH, 0);
+		View view2 = new View(LENGTH);
+		Model model2 = new Model(LENGTH,0);
 		Controller controller2 = new Controller(view2, model2);
 		assertFalse(controller2.isPlaying());
 		
 		//Test if still playing
-		View view3 = new View(LENGTH, 4);
+		View view3 = new View(LENGTH);
 		Model model3 = new Model(LENGTH, 4);
 		Controller controller3 = new Controller(view3, model3);
 		assertTrue(controller3.isPlaying());

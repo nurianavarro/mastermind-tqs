@@ -3,15 +3,10 @@ package MasterMind;
 import java.util.ArrayList;
 
 public class View {
-	int turn = 0;
 	int LENGTH = 4;
-	public View(int length, int turns) {
+	public View(int length) {
 		this.LENGTH = length;
-		this.turn = turns;
 	}
-	
-	int getTurn() {return turn;}
-	public void setTurn(int turn) {this.turn = turn;}
 	
 	public void displayInstructions(){
 		System.out.println("INSTRUCTIONS");
@@ -29,6 +24,29 @@ public class View {
 		System.out.println("instructions      -- see game instructions");
         System.out.println("reset             -- start a new game");
         System.out.println("quit              -- quit the game");
+	}
+	
+	public void displayResults(ArrayList<Integer> guessedPattern, int turn, int max) {
+		System.out.println(guessedPattern);
+		System.out.println("You have " + turn + " turns left");
+	}
+	
+	public void displayGameOver() {
+		System.out.println("You have no turns left!");
+		System.out.println("GAME OVER");
+	}
+	
+	public void displayWin() {
+		System.out.println("Correct combination");
+		System.out.println("You are the winner!");
+	}
+	
+	public void displayWrongNumber() {
+		System.out.println("Error: Only allowed numbers from 1 to 9");
+	}
+	
+	public void displayError() {
+		System.out.println("Error: wrong command");
 	}
 	
 	

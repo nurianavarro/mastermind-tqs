@@ -1,5 +1,7 @@
 package MasterMind;
 
+import java.util.Scanner;
+
 public class Main {
 	
 	public static void main(String[] args) {
@@ -8,10 +10,17 @@ public class Main {
 		//Number of attempts to guess the combination
 		int turns = 10;
 		
-		View view = new View(LENGTH, turns);
+		View view = new View(LENGTH);
 		Model model = new Model(LENGTH, turns);
 		Controller controller = new Controller(view, model);
-		controller.newGame();
+
+		Scanner input = new Scanner(System.in);
+		boolean playing = true;
+		while(controller.isPlaying() && playing) {
+			playing = controller.loop(input);
+		}
+		
+		input.close();
 		
 	}
 }
