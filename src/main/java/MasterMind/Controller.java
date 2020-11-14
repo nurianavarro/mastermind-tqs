@@ -59,7 +59,8 @@ public class Controller {
 		int length = this.model.getLENGTH();
     	if(words.length != length + 1) {
     		this.view.displayWrongNumber();
-    	}else if (checkGuess(words)){    		
+    	}else if (checkGuess(words)){    
+    		
     		if(this.model.isFilled()) {
     			this.model.checkResult();
     		} else {

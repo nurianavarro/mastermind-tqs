@@ -145,20 +145,16 @@ public class ModelTest {
 		//Test if size of array is equal to LENGTH
 		assertEquals(m.getRandomPattern().size(), m.getLENGTH());
 		//Test if there is repeated numbers
-		boolean repeatedNumbers = false;
 		Set<Integer> set = new HashSet<Integer>(m.getRandomPattern());
-		if(set.size() < m.getRandomPattern().size()) {
-			repeatedNumbers = true;
-		}	
-		assertFalse(repeatedNumbers);
+		assertFalse(set.size() < m.getRandomPattern().size());
 		//Test if there is all numbers are between 0 and 9
-		boolean wrongNumber = false;
+		//boolean wrongNumber = false;
 		for(int i=0; i<m.getRandomPattern().size(); i++) {
-			if (m.getRandomPattern().get(i) < 0 && m.getRandomPattern().get(i) > 9) {
-				wrongNumber = true;
-			}
+			assertFalse(m.getRandomPattern().get(i) < 0 && m.getRandomPattern().get(i) > 9); //{
+				//wrongNumber = true;
+			//}
 		}
-		assertFalse(wrongNumber);
+		//assertFalse(wrongNumber);
 	}
 	
 	@Test
