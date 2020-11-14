@@ -28,6 +28,8 @@ public class ModelTest {
 	
 	@Test
 	public void testBuildGuessedPattern() {
+		MockModel mock = new MockModel(LENGTH,turn);
+		mock.buildGuessedPattern(0);
 		Model m = new Model(LENGTH,turn);
 		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
 		ArrayList<Integer>[] guessedPatterns = new ArrayList[1];
@@ -148,13 +150,9 @@ public class ModelTest {
 		Set<Integer> set = new HashSet<Integer>(m.getRandomPattern());
 		assertFalse(set.size() < m.getRandomPattern().size());
 		//Test if there is all numbers are between 0 and 9
-		//boolean wrongNumber = false;
 		for(int i=0; i<m.getRandomPattern().size(); i++) {
-			assertFalse(m.getRandomPattern().get(i) < 0 && m.getRandomPattern().get(i) > 9); //{
-				//wrongNumber = true;
-			//}
+			assertFalse(m.getRandomPattern().get(i) < 0 && m.getRandomPattern().get(i) > 9);
 		}
-		//assertFalse(wrongNumber);
 	}
 	
 	@Test
@@ -202,10 +200,31 @@ public class ModelTest {
 		assertEquals(m2.getCountB(),4);
 		assertEquals(m2.getHitsPattern()[0], hitsPattern2);
 		
+		//Test case when any number is in the combination
+		Model m3 = new Model(LENGTH,turn);
+		m3.setRandomPattern(randomPattern);
+		ArrayList<Integer> guessedPattern3 = new ArrayList<Integer>();
+		ArrayList<String> hitsPattern3 = new ArrayList<String>();
+		guessedPattern3.add(5);
+		guessedPattern3.add(6);
+		guessedPattern3.add(7);
+		guessedPattern3.add(8);
+		hitsPattern3.add("X");
+		hitsPattern3.add("X");
+		hitsPattern3.add("X");
+		hitsPattern3.add("X");
+		m3.setGuessedPattern(guessedPattern3);
+		m3.checkResult();
+		assertEquals(m3.getCountW(),0);
+		assertEquals(m3.getCountB(),0);
+		assertEquals(m3.getHitsPattern()[0], hitsPattern3);
+		
 		//We have to make sure that the turn has been decremented
 		assertEquals(m.getTurn(), (turn-1));
+		assertEquals(m2.getTurn(), (turn-1));
 		//GuessedPattern needs to be empty for the next iteration
 		assertTrue(m.getGuessedPattern().isEmpty());
+		assertTrue(m2.getGuessedPattern().isEmpty());
 	}
 	
 	@Test
@@ -239,6 +258,8 @@ public class ModelTest {
 	
 	@Test
 	public void testUpdateTurn() {
+		MockModel mock = new MockModel(LENGTH,turn);
+		mock.updateTurn();
 		//Test if turn decrements
 		Model m = new Model(LENGTH,turn);
 		m.updateTurn();
