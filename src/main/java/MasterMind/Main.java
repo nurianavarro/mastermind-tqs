@@ -13,7 +13,7 @@ public class Main {
 		View view = new View(LENGTH);
 		Model model = new Model(LENGTH, turns);
 		Controller controller = new Controller(view, model);
-
+		
 		Scanner input = new Scanner(System.in);
 		boolean playing = true;
 		while(playing) {

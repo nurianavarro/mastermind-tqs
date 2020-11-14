@@ -70,7 +70,8 @@ public class Model {
 			Random randomGenerator = new Random();
 			if(randomPattern.size() < LENGTH) {
 				while(repeatedNumber) {
-					int randomNumber = randomGenerator.nextInt(10);
+					//We want numbers from 1 to 9 -> nextInt(max-min+1)+min
+					int randomNumber = randomGenerator.nextInt(9) + 1;
 					if(!randomPattern.contains(randomNumber)) {
 						randomPattern.add(randomNumber);
 						repeatedNumber = false;
@@ -130,6 +131,7 @@ public class Model {
 		countBlack = 0;
 		guessedPattern.clear();
 		randomPattern.clear();
+		turn = initialTurns;
 	}
 	
 }

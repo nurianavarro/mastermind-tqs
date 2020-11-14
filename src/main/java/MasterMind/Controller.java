@@ -42,9 +42,7 @@ public class Controller {
             } else {
             	this.view.displayError();
             }
-		} else {
-			this.view.displayError();
-		}
+		} 
 
 		return true;
 	}
@@ -61,48 +59,47 @@ public class Controller {
 		int length = this.model.getLENGTH();
     	if(words.length != length + 1) {
     		this.view.displayWrongNumber();
-    		System.out.println("length");
-    	}else {
-    		for(int i=1; i<=length; i++) {
-    			int val;
-    			try {
-    				val = Integer.parseInt(words[i]);
-    			}catch(NumberFormatException e) {
-    				this.view.displayError();
-    				return true;
-    			}
-    			if(val >= 1 && val <= 9) {
-    				this.model.buildGuessedPattern(val);
-    			}else {
-    				System.out.println("number");
-    				this.view.displayWrongNumber();
-    				return true;
-                }
-    		}
-    		
+    	}else if (checkGuess(words)){    		
     		if(this.model.isFilled()) {
     			this.model.checkResult();
     		} else {
-    			System.out.println("filled");
     			this.view.displayWrongNumber();
     			return true;
     		}
-    		
-    		
+    		//WINNER CASE
     		if (this.model.hasWon()) {
-    			this.view.displayWin(this.model.getRandomPattern());
+    			this.view.displayWin(this.model.getRandomPattern(), this.model.getTurn(), this.model.getInitialTurns());
     			return false;
+    		//GAME OVER CASE
     		} else if (this.model.getTurn() <= 0) {
     			this.view.displayGameOver(this.model.getRandomPattern());
     			return false;
+    		//CONTINUE PLAYING CASE
     		} else {
-    			//Display board
     			this.view.displayResults(this.model.getGuessedPatterns(), this.model.getHitsPattern(), this.model.getTurn(), this.model.getInitialTurns());
     		}
-    		
-    	
     	}
-		
+		return true;
+	}
+	
+	public boolean checkGuess(String[] words) {
+		int length = this.model.getLENGTH();
+		for(int i=1; i<=length; i++) {
+			int val;
+			try {
+				val = Integer.parseInt(words[i]);
+			}catch(NumberFormatException e) {
+				this.view.displayError();
+				return false;
+			}
+			
+			if(val >= 1 && val <= 9) {
+				this.model.buildGuessedPattern(val);
+			}else {
+				this.view.displayWrongNumber();
+				return false;
+            }
+		}
 		return true;
 	}
 }

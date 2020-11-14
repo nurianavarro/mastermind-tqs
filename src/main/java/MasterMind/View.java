@@ -43,10 +43,10 @@ public class View {
 		System.out.println("GAME OVER");
 	}
 	
-	public void displayWin(ArrayList<Integer> randomPattern) {
+	public void displayWin(ArrayList<Integer> randomPattern, int current, int max) {
 		System.out.println("");
 		System.out.println("Perfect! The correct combination is " + randomPattern);
-		System.out.println("You are the winner!");
+		System.out.println("You are the winner! You won in " + (max-current) + " turns");
 	}
 	
 	public void displayWrongNumber() {

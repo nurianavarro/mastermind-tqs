@@ -130,9 +130,9 @@ public class ModelTest {
 		guessedPattern2.add(3);
 		m2.setGuessedPattern(guessedPattern2);
 		m2.checkResult();
-		boolean result2 = false;
-		if(m2.getCountW()==m2.getLENGTH()) {
-			result2 = true;
+		boolean result2 = true;
+		if(m2.getCountW() != m2.getLENGTH()) {
+			result2 = false;
 		}
 		assertEquals(result2,m2.hasWon());
 		//ADD DELETIONS LATER
