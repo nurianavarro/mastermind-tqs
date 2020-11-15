@@ -149,6 +149,10 @@ public class ModelTest {
 		//Mock
 		MockModel mock = new MockModel(LENGTH,turn);
 		assertFalse(mock.hasWon());
+		
+		//DECISION COVERAGE
+		
+		//Test where hasWon is true
 		Model m = new Model(LENGTH,turn);
 		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
 		randomPattern.add(1);
@@ -163,14 +167,9 @@ public class ModelTest {
 		guessedPattern.add(4);
 		m.setGuessedPattern(guessedPattern);
 		m.checkResult();
-		boolean result = false;
-		if(m.getCountW()==m.getLENGTH()) {
-			result = true;
-		}
-		//Test if it is the same result
-		assertEquals(result,m.hasWon());
+		assertTrue(m.hasWon());
 		
-		//Test if is in different position
+		//Test where hasWon is false
 		Model m2 = new Model(LENGTH,turn);
 		m2.setRandomPattern(randomPattern);
 		ArrayList<Integer> guessedPattern2 = new ArrayList<Integer>();
@@ -180,12 +179,8 @@ public class ModelTest {
 		guessedPattern2.add(3);
 		m2.setGuessedPattern(guessedPattern2);
 		m2.checkResult();
-		boolean result2 = true;
-		if(m2.getCountW() != m2.getLENGTH()) {
-			result2 = false;
-		}
-		assertEquals(result2,m2.hasWon());
-		//ADD DELETIONS LATER
+		assertFalse(m2.hasWon());
+		
 	}
 	
 	@Test
@@ -197,9 +192,9 @@ public class ModelTest {
 		//Test if there is repeated numbers
 		Set<Integer> set = new HashSet<Integer>(m.getRandomPattern());
 		assertFalse(set.size() < m.getRandomPattern().size());
-		//Test if there is all numbers are between 0 and 9
+		//Test if there is all numbers are between 1 and 9
 		for(int i=0; i<m.getRandomPattern().size(); i++) {
-			assertFalse(m.getRandomPattern().get(i) < 0 && m.getRandomPattern().get(i) > 9);
+			assertFalse(m.getRandomPattern().get(i) < 1 && m.getRandomPattern().get(i) > 9);
 		}
 	}
 	
