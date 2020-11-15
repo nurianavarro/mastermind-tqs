@@ -1,5 +1,7 @@
 package MasterMind;
 
+import java.util.ArrayList;
+
 public class MockView extends View {
 
 	public MockView(int length) {
@@ -7,14 +9,15 @@ public class MockView extends View {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void displayWrongNumber() {
-		System.out.println("");
-		System.out.println("Error: Only allowed numbers from 1 to 9");
-		System.out.println("The combination must have " + LENGTH + " numbers");
+	public void displayGameOver() {
+		System.out.println("GAME OVER");
 	}
 	
-	public void displayError() {
-		System.out.println("");
-		System.out.println("Error: wrong command");
+	public void displayWin() {
+		System.out.println("You are the winner!");
+	}
+	
+	public void displayContinuePlaying() {
+		System.out.println("Not yet!");
 	}
 }

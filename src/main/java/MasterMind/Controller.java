@@ -61,14 +61,9 @@ public class Controller {
 		int length = this.model.getLENGTH();
     	if(words.length != length + 1) {
     		this.view.displayWrongNumber();
-    	}else if (checkGuess(words)){    
-    		
-    		if(this.model.isFilled()) {
-    			this.model.checkResult();
-    		} else {
-    			this.view.displayWrongNumber();
-    			return true;
-    		}
+    	}else if (checkGuess(words)){
+    		this.model.checkResult();
+
     		//WINNER CASE
     		if (this.model.hasWon()) {
     			this.view.displayWin(this.model.getRandomPattern(), this.model.getTurn(), this.model.getInitialTurns());

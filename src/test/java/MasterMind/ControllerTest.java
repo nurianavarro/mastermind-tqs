@@ -30,6 +30,9 @@ public class ControllerTest {
 		assertEquals(model.getCountW(), 0);
 		assertEquals(model.getCountB(), 0);
 		
+		//mock
+		MockController mock = new MockController(view, model);
+		mock.newGame();
 	}
 	
 	@Test
@@ -94,6 +97,10 @@ public class ControllerTest {
 		model4.setGuessedPattern(guessedPattern4);
 		model4.checkResult();
 		assertFalse(controller4.isPlaying());
+		
+		//mock
+		MockController mock = new MockController(view, model);
+		assertFalse(mock.isPlaying());
 	}
 	
 	
@@ -127,10 +134,43 @@ public class ControllerTest {
 		assertTrue(controller.loop(input));
 		
 		input.close();
-
+		
+		//mock
+		MockController mock = new MockController(view, model);
+		mock.loop();
 	}
 	
-	
+	@Test
+	public void testMakeGuess() {
+		MockView view = new MockView(LENGTH);
+		Model model = new Model(LENGTH, turn);
+		Controller controller = new Controller(view, model);
+		
+		//Winner case
+		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
+		randomPattern.add(1);
+		randomPattern.add(2);
+		randomPattern.add(3);
+		randomPattern.add(4);
+		model.setRandomPattern(randomPattern);
+		String[] words = {"guess","1","2","3","4"};
+		view.displayWin();
+		assertFalse(controller.makeGuess(words));
+		
+		//GameOver case
+		Model model2 = new Model(LENGTH, 1);
+		Controller controller2 = new Controller(view, model2);
+		String[] words2 = {"guess","1","2","3","4"};
+		view.displayGameOver();
+		assertFalse(controller2.makeGuess(words2));
+		
+		//Continue playing
+		Controller controller3 = new Controller(view, model);
+		String[] words3 = {"guess","1","2","3","1"};
+		view.displayContinuePlaying();
+		assertTrue(controller3.makeGuess(words3));
+		
+	}
 	
 	@Test
 	public void testCheckGuess() {
