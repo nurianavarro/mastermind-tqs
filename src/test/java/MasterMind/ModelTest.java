@@ -27,6 +27,16 @@ public class ModelTest {
 	}
 	
 	@Test
+	public void testInitializeLists() {
+		Model m = new Model(LENGTH,turn);
+		m.initializeLists();
+		for (int i = 0; i<m.getInitialTurns(); i++) {
+			assertTrue(m.getGuessedPatterns()[i].isEmpty());
+			assertTrue(m.getHitsPattern()[i].isEmpty());
+		}
+	}
+	
+	@Test
 	public void testBuildGuessedPattern() {
 		MockModel mock = new MockModel(LENGTH,turn);
 		mock.buildGuessedPattern(0);
