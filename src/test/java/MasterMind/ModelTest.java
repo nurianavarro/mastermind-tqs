@@ -272,7 +272,9 @@ public class ModelTest {
 	
 	@Test
 	public void testResetGuessedPattern() {
-		MockModel m = new MockModel(LENGTH,turn);
+		MockModel mock = new MockModel(LENGTH,turn);
+		mock.resetGuessedPattern();
+		Model m = new Model(LENGTH,turn);
 		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
 		randomPattern.add(1);
 		randomPattern.add(2);
@@ -297,6 +299,12 @@ public class ModelTest {
 		assertTrue(m.getRandomPattern().isEmpty());
 		
 		//Test if turn has the default value
+		assertEquals(m.getInitialTurns(), m.getTurn());
+		//Test if guessedPatterns and hitsPattern are empty
+		for (int i = 0; i<m.getInitialTurns(); i++) {
+			assertTrue(m.getGuessedPatterns()[i].isEmpty());
+			assertTrue(m.getHitsPattern()[i].isEmpty());
+		}
 	}
 	
 	@Test
