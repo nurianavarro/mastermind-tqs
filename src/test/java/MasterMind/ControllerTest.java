@@ -29,50 +29,21 @@ public class ControllerTest {
 		controller.newGame();
 		assertEquals(model.getCountW(), 0);
 		assertEquals(model.getCountB(), 0);
-	}
-	@Test
-	public void testLoop() {
-		View view = new View(LENGTH);
-		Model model = new Model(LENGTH, turn);
-		MockController controller = new MockController(view, model);
 		
-		//FALSE = finish execution
-		//TRUE = continue
-		
-		//With option 'quit' it should return false
-		Scanner input = new Scanner("quit");
-		assertFalse(controller.loop(input));
-		
-		//With option 'reset' it should return true
-		input = new Scanner("reset");
-		assertTrue(controller.loop(input));
-		
-		//With option 'instructions' it should return true
-		input = new Scanner("instructions");
-		assertTrue(controller.loop(input));
-		
-		//With option 'guess' it should return true
-		input = new Scanner("guess");
-		assertTrue(controller.loop(input));
-		
-		//With wrong option it should continue execution
-		input = new Scanner("sfgf");
-		assertTrue(controller.loop(input));
-		
-		input.close();
-
 	}
 	
 	@Test
 	public void testIsPlaying() {
-		//Condition coverage implemented
-		//First condition is hasWon, second condition is turn>0
-		
-		//CASE TRUE,FALSE -> False
-		// If the user has won
 		View view = new View(LENGTH);
 		Model model = new Model(LENGTH, turn);
 		Controller controller = new Controller(view, model);
+		
+		//White box: CONDITION COVERAGE + DECISION COVERAGE
+		
+		//First condition is hasWon, second condition is turn>0
+		
+		//CASE TRUE,FALSE -> True
+		// If the user has won
 		ArrayList<Integer> randomPattern = new ArrayList<Integer>();
 		randomPattern.add(1);
 		randomPattern.add(2);
@@ -88,7 +59,7 @@ public class ControllerTest {
 		model.checkResult();
 		assertFalse(controller.isPlaying());
 		
-		//Case FALSE,TRUE -> False 
+		//Case FALSE,TRUE -> True 
 		//Test if there is 0 turns
 		View view2 = new View(LENGTH);
 		Model model2 = new Model(LENGTH,0);
@@ -125,11 +96,102 @@ public class ControllerTest {
 		assertFalse(controller4.isPlaying());
 	}
 	
+	
 	@Test
-	public void testMakeGuess() {
+	public void testLoop() {
+		View view = new View(LENGTH);
+		Model model = new Model(LENGTH, turn);
+		MockController controller = new MockController(view, model);
+		
+		//FALSE = finish execution
+		//TRUE = continue
+		
+		//With option 'quit' it should return false
+		Scanner input = new Scanner("quit");
+		assertFalse(controller.loop(input));
+		
+		//With option 'reset' it should return true
+		input = new Scanner("reset");
+		assertTrue(controller.loop(input));
+		
+		//With option 'instructions' it should return true
+		input = new Scanner("instructions");
+		assertTrue(controller.loop(input));
+		
+		//With option 'guess' it should return true
+		input = new Scanner("guess");
+		assertTrue(controller.loop(input));
+		
+		//With wrong option it should continue execution
+		input = new Scanner("sfgf");
+		assertTrue(controller.loop(input));
+		
+		input.close();
+
+	}
+	
+	
+	
+	@Test
+	public void testCheckGuess() {
 		View view = new View(LENGTH);
 		Model model = new Model(LENGTH, turn);
 		Controller controller = new Controller(view, model);
+		
+		//White box: Equivalent partitions + Limit and boundary values
+		//Black box: CONDITION COVERAGE + DECISION COVERAGE
+		
+		//Equivalent partitions
+		
+		//Valid numbers
+		String[] valid = {"guess","1","3","6","8"};
+		assertTrue(controller.checkGuess(valid));
+		
+		//Invalid numbers
+		String[] invalid = {"guess","0","10","-3","67"};
+		assertFalse(controller.checkGuess(invalid));
+		
+		//Not integer values
+		String[] chars = {"guess","mas","ter","mind","!"};
+		assertFalse(controller.checkGuess(chars));
+		
+		//Limit and boundary values
+		
+		//Internal values
+		String[] internal = {"guess","4","6","4","6"};
+		assertTrue(controller.checkGuess(internal));
+		
+		//Boundary values
+		String[] boundary = {"guess","1","9","1","9"};
+		assertTrue(controller.checkGuess(boundary));
+		
+		//Boundary values
+		String[] internalBoundary = {"guess","2","8","2","8"};
+		assertTrue(controller.checkGuess(internalBoundary));
+				
+		//Boundary values
+		String[] externalBoundary = {"guess","0","10","0","10"};
+		assertFalse(controller.checkGuess(externalBoundary));
+		
+		//Condition coverage (+ decision coverage implicitly)
+		//Where A = (value >= 1), B = (value <= 9) -> Result
+		
+		//TRUE, TRUE -> True
+		String[] first = {"guess","1","2","8","9"};
+		assertTrue(controller.checkGuess(first));
+		
+		//TRUE, FALSE -> False
+		String[] second = {"guess","10","11","10","11"};
+		assertFalse(controller.checkGuess(second));
+		
+		//FALSE, TRUE -> False
+		String[] third = {"guess","-1","0","-1","0"};
+		assertFalse(controller.checkGuess(third));
+		
+		//FALSE, FALSE -> False
+		String[] fourth = {"guess","0","10","0","10"};
+		assertFalse(controller.checkGuess(fourth));
+		
 	}
 
 }

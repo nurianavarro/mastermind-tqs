@@ -1,6 +1,7 @@
 package MasterMind;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Controller {
@@ -15,6 +16,14 @@ public class Controller {
 	public void newGame() {
 		model.generateRandomPattern();
 		model.resetGuessedPattern();
+	}
+	
+	public boolean isPlaying() {
+		boolean playing = true;
+		if(model.hasWon() || model.getTurn() <= 0) {
+			playing = false;
+		}
+		return playing;
 	}
 	
 	public boolean loop(Scanner input) {
@@ -42,18 +51,11 @@ public class Controller {
             } else {
             	this.view.displayError();
             }
-		} 
+		}
 
 		return true;
 	}
 	
-	public boolean isPlaying() {
-		boolean playing = true;
-		if(model.hasWon() || model.getTurn() <= 0) {
-			playing = false;
-		}
-		return playing;
-	}
 	
 	public boolean makeGuess(String[] words) {
 		int length = this.model.getLENGTH();

@@ -31,7 +31,7 @@ public class ModelTest {
 		Model m = new Model(LENGTH,turn);
 		//We do not call initializeLists because the Constructor calls it
 		
-		//SIMPLE LOOP TESTING
+		//White box: SIMPLE LOOP TESTING
 		
 		//Case avoid loop
 		int n = 0;
@@ -104,6 +104,11 @@ public class ModelTest {
 		//Mock
 		MockModel mock = new MockModel(LENGTH,turn);
 		assertFalse(mock.isFilled());
+		
+		//White box: DECISION COVERAGE
+		//Black box: Equivalent partitions
+		
+		
 		//Test with shorter pattern
 		Model m = new Model(LENGTH,turn);
 		m.generateRandomPattern();
@@ -147,7 +152,7 @@ public class ModelTest {
 		MockModel mock = new MockModel(LENGTH,turn);
 		assertFalse(mock.hasWon());
 		
-		//DECISION COVERAGE
+		//White box: DECISION COVERAGE
 		
 		//Test where hasWon is true
 		Model m = new Model(LENGTH,turn);
@@ -184,6 +189,9 @@ public class ModelTest {
 	public void testGenerateRandomPattern() {
 		Model m = new Model(LENGTH,turn);
 		m.generateRandomPattern();
+		
+		//Black box: Equivalent partitions
+		
 		//Test if size of array is equal to LENGTH
 		assertEquals(m.getRandomPattern().size(), m.getLENGTH());
 		//Test if there is repeated numbers
@@ -262,9 +270,11 @@ public class ModelTest {
 		//We have to make sure that the turn has been decremented
 		assertEquals(m.getTurn(), (turn-1));
 		assertEquals(m2.getTurn(), (turn-1));
+		assertEquals(m3.getTurn(), (turn-1));
 		//GuessedPattern needs to be empty for the next iteration
 		assertTrue(m.getGuessedPattern().isEmpty());
 		assertTrue(m2.getGuessedPattern().isEmpty());
+		assertTrue(m3.getGuessedPattern().isEmpty());
 	}
 	
 	@Test
