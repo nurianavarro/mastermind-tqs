@@ -30,7 +30,45 @@ public class ModelTest {
 	public void testInitializeLists() {
 		Model m = new Model(LENGTH,turn);
 		m.initializeLists();
-		for (int i = 0; i<m.getInitialTurns(); i++) {
+		//SIMPLE LOOP TESTING
+		
+		//Case avoid loop
+		int n = 0;
+		m = new Model(LENGTH,n);
+		m.initializeLists();
+		assertEquals(m.getGuessedPatterns()[0], null);
+		assertEquals(m.getHitsPattern()[0], null);
+		
+		//Case one iteration
+		n = 1;
+		m = new Model(LENGTH,n);
+		m.initializeLists();
+		for (int i = 0; i<n; i++) {
+			assertTrue(m.getGuessedPatterns()[i].isEmpty());
+			assertTrue(m.getHitsPattern()[i].isEmpty());
+		}
+		
+		//Case two iterations
+		n = 2;
+		m = new Model(LENGTH,n);
+		m.initializeLists();
+		for (int i = 0; i<n; i++) {
+			assertTrue(m.getGuessedPatterns()[i].isEmpty());
+			assertTrue(m.getHitsPattern()[i].isEmpty());
+		}
+		
+		//Case m iterations where m<n
+		n = 10;
+		m = new Model(LENGTH,n);
+		m.initializeLists();
+		for (int i = 0; i<(n-3); i++) {
+			assertTrue(m.getGuessedPatterns()[i].isEmpty());
+			assertTrue(m.getHitsPattern()[i].isEmpty());
+		}
+		
+		//Case (n-1)
+		//Same parameters as the last case, but n-1
+		for (int i = 0; i<(n-1); i++) {
 			assertTrue(m.getGuessedPatterns()[i].isEmpty());
 			assertTrue(m.getHitsPattern()[i].isEmpty());
 		}
