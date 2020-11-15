@@ -132,6 +132,11 @@ public class Model {
 		guessedPattern.clear();
 		randomPattern.clear();
 		turn = initialTurns;
+		for (int i=0; i<this.initialTurns; i++) {
+			guessedPatterns[i] = new ArrayList<Integer>();
+			hitsPattern[i] = new ArrayList<String>();
+		}
+		
 	}
 	
 }
