@@ -27,3 +27,13 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
+
+task customFatJar(type: Jar) {
+
+    manifest {
+    	attributes 'Main-Class': 'MasterMind.Main'
+    }
+    baseName = 'all-in-one-jar'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}

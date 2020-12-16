@@ -136,4 +136,7 @@ public class Model {
 		
 	}
 	
+	public void resetCountWhite() {
+ 		countWhite = 0;
+ 	}
 }
