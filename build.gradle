@@ -9,6 +9,7 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    
 }
 
 repositories {
@@ -28,12 +29,3 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
-task customFatJar(type: Jar) {
-
-    manifest {
-    	attributes 'Main-Class': 'MasterMind.Main'
-    }
-    baseName = 'all-in-one-jar'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-}

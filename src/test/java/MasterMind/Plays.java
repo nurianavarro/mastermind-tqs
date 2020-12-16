@@ -2,9 +2,11 @@ package MasterMind;
 import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -22,10 +24,10 @@ public class Plays {
         Model model1 = new Model(LENGTH, turn);
         Controller controller1 = new Controller(view1, model1);        
         
-        String file1;
         String read_combination1;
         String[] combination1;
-        file1 = "/Users/nurianavarrojuliana/git/mastermind-tqs/src/test/java/MasterMind/Plays_AutomatedTest_1.txt";
+        URL url = getClass().getResource("Plays_AutomatedTest_1.txt");
+        File file1= new File(url.getPath());
         FileReader f1 = new FileReader(file1);
         BufferedReader b1 = new BufferedReader(f1);
         
@@ -70,10 +72,10 @@ public class Plays {
         Model model2 = new Model(LENGTH, turn);
         Controller controller2 = new Controller(view2, model2);
         
-        String file2;
         String read_combination2;
         String[] combination2;
-        file2 = "../Plays_AutomatedTest_2.txt";
+        URL url = getClass().getResource("Plays_AutomatedTest_2.txt");
+        File file2= new File(url.getPath());
         FileReader f2 = new FileReader(file2);
         BufferedReader b2 = new BufferedReader(f2);
         
@@ -128,10 +130,11 @@ public class Plays {
         Model model3 = new Model(LENGTH, turn);
         Controller controller3 = new Controller(view3, model3);
         
-        String file3;
         String read_combination3;
         String[] combination3;
-        file3 = "/Users/nurianavarrojuliana/git/mastermind-tqs/src/test/java/MasterMind/Plays_AutomatedTest_3.txt";
+        URL url = getClass().getResource("Plays_AutomatedTest_3.txt");
+        File file3= new File(url.getPath());
+        
         FileReader f3 = new FileReader(file3);
         BufferedReader b3 = new BufferedReader(f3);
         
@@ -186,10 +189,11 @@ public class Plays {
         Model model4 = new Model(LENGTH, turn);
         MockController controller4 = new MockController(view4, model4);
         
-        String file4;
+        
         String read_combination4;
         String[] combination4;
-        file4 = "/Users/nurianavarrojuliana/git/mastermind-tqs/src/test/java/MasterMind/Plays_AutomatedTest_4.txt";
+        URL url = getClass().getResource("Plays_AutomatedTest_4.txt");
+        File file4= new File(url.getPath());
         FileReader f4 = new FileReader(file4);
         BufferedReader b4 = new BufferedReader(f4);
         
@@ -224,10 +228,10 @@ public class Plays {
         Model model5 = new Model(LENGTH, turn);
         MockController controller5 = new MockController(view5, model5);
         
-        String file5;
         String read_combination5;
         String[] combination5;
-        file5 = "/Users/nurianavarrojuliana/git/mastermind-tqs/src/test/java/MasterMind/Plays_AutomatedTest_5.txt";
+        URL url = getClass().getResource("Plays_AutomatedTest_1.txt");
+        File file5= new File(url.getPath());
         FileReader f5 = new FileReader(file5);
         BufferedReader b5 = new BufferedReader(f5);
         
@@ -262,10 +266,10 @@ public class Plays {
         Model model6 = new Model(LENGTH, turn);
         Controller controller6 = new Controller(view6, model6);       
         
-        String file6;
         String read_combination6;
         String[] combination6;
-        file6 = "/Users/nurianavarrojuliana/git/mastermind-tqs/src/test/java/MasterMind/Plays_AutomatedTest_6.txt";
+        URL url = getClass().getResource("Plays_AutomatedTest_6.txt");
+        File file6= new File(url.getPath());
         FileReader f6 = new FileReader(file6);
         BufferedReader b6 = new BufferedReader(f6);
         
